@@ -19,36 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-<<<<<<< HEAD
-=======
-
----
-
-THIRD-PARTY MODELS AND DEPENDENCIES
-====================================
-
-This software incorporates or uses the following open-source models and libraries.
-Please refer to ACKNOWLEDGMENTS.md for full licensing information for each component.
-
-1. GVHMR (Gravity-aware Video Human Motion Recovery)
-   - License: Academic/Research License (see ACKNOWLEDGMENTS.md)
-   - For commercial use, contact: xwzhou@zju.edu.cn
-
-2. ViTPose (Vision Transformer for 2D Pose Estimation)
-   - License: Apache 2.0
-   - Original: https://github.com/ViTAE-Transformer/ViTPose
-
-3. SMPL (Skinned Multi-Person Linear Model)
-   - License: Research License (see ACKNOWLEDGMENTS.md)
-   - Original: https://smpl.is.tue.mpg.de/
-
-4. YOLOv8 / YOLOPose
-   - License: AGPL-3.0
-   - Original: https://github.com/ultralytics/ultralytics
-
-5. MobileNetV3
-   - License: Apache 2.0
-   - Original: PyTorch torchvision
-
-Users of this software must comply with all applicable third-party licenses.
->>>>>>> 9ba8dd0 (Initial commit: HPE App - Real-time 3D human motion recovery on iOS)
