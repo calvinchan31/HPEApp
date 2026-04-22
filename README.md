@@ -186,7 +186,7 @@ If you use this app or code in research, please cite:
 
 1. **GVHMR**: See https://github.com/zju3dv/GVHMR for citations
 2. **ViTPose**: See https://github.com/ViTAE-Transformer/ViTPose for citations
-3. **SMPL**: Loper et al., ACM TOG 2015
+3. **SMPL**: See https://github.com/vchoutas/smplx/tree/main for citations
 
 ---
 
