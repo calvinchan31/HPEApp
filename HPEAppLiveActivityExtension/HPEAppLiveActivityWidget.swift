@@ -5,7 +5,7 @@ import WidgetKit
 import ActivityKit
 
 @available(iOSApplicationExtension 16.1, *)
-struct GVHMRLiveActivityWidget: Widget {
+struct HPEAppLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: VideoProcessingActivityAttributes.self) { context in
             VStack(alignment: .leading, spacing: 10) {
@@ -14,7 +14,7 @@ struct GVHMRLiveActivityWidget: Widget {
                         .font(.caption.weight(.bold))
                         .foregroundStyle(context.state.isCompleted ? .green : .cyan)
 
-                    Text(context.state.detail.isEmpty ? "GVHMR Video" : context.state.detail)
+                    Text(context.state.detail.isEmpty ? "HPE Video" : context.state.detail)
                         .font(.caption.weight(.semibold))
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
@@ -75,7 +75,7 @@ struct GVHMRLiveActivityWidget: Widget {
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("GVHMR")
+                        Text("HPE App")
                             .font(.caption.bold())
                         Text(context.state.isCompleted ? "Completed" : "Processing")
                             .font(.caption2)
@@ -95,7 +95,7 @@ struct GVHMRLiveActivityWidget: Widget {
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(context.state.detail.isEmpty ? "GVHMR Video" : context.state.detail)
+                        Text(context.state.detail.isEmpty ? "HPE Video" : context.state.detail)
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
@@ -154,9 +154,9 @@ struct GVHMRLiveActivityWidget: Widget {
 
 @available(iOSApplicationExtension 16.1, *)
 @main
-struct GVHMRLiveActivityBundle: WidgetBundle {
+struct HPEAppLiveActivityBundle: WidgetBundle {
     var body: some Widget {
-        GVHMRLiveActivityWidget()
+        HPEAppLiveActivityWidget()
     }
 }
 #endif

@@ -7,7 +7,7 @@
 import SwiftUI
 
 @main
-struct GVHMRApp: App {
+struct HPEApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

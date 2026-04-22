@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		4646063B2A05A07C6E18D27D /* ViTPoseSmall.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = B8D051AF8A0602D7185F8F2E /* ViTPoseSmall.mlpackage */; };
 		5D611CFE1DFBE5817832D243 /* PerformanceMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D1BC6A05D552BD92434840 /* PerformanceMetrics.swift */; };
 		60AA605EC4F448C0108CAC48 /* VideoExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAF921C023E683DCB1ABCA /* VideoExporter.swift */; };
-		65669A229B7A4BAE35ECFBA1 /* GVHMRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0160A6034777D79B23B131 /* GVHMRApp.swift */; };
 		6B7BA89B27A76EE2BE14E4E4 /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439F02D0B7398A9B2993B829 /* MathUtils.swift */; };
 		6C86E7AD5BECB26F11342F8E /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 593BB74FA08A3964DE4CF351 /* PhotosUI.framework */; };
 		6FCEABF06955EAE24913B762 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B25FD713CCB7E2B150E2F3 /* CameraManager.swift */; };
@@ -53,6 +52,7 @@
 		E51D1D3DA42537647869472B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B38E317DA0C6F40A22A2C47C /* WidgetKit.framework */; };
 		E7FF3EFF4145A2361C9A17BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAFD56AAD2E28965E3C213D /* ContentView.swift */; };
 		E864F6CF1959357B54DD196F /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C058FEB98E1D6DEFD03737C /* Types.swift */; };
+		EACD4EF7DFDFDF0105FE6350 /* HPEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642E53DE37F6FB7E533ED8AB /* HPEApp.swift */; };
 		F6900B46AA9E3EA9E047EA9C /* ActivityKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD0CD73F60C11C5ED3FD950 /* ActivityKit.framework */; };
 		F6B182FE93F4A4E0AF28F231 /* SMPLForward.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 0BDA842E6BA774271D51E49D /* SMPLForward.mlpackage */; };
 		FB4E44984B6AE70D5038860A /* CoreMLCaptioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A43FDF492F764B142B3CE7 /* CoreMLCaptioner.swift */; };
@@ -85,9 +85,8 @@
 /* Begin PBXFileReference section */
 		0500D8005D06465A5CD5EECF /* VideoProcessingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessingView.swift; sourceTree = "<group>"; };
 		0A58B3C2AFD5BB932D4CAE96 /* smpl_template.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = smpl_template.bin; sourceTree = "<group>"; };
-		0BDA842E6BA774271D51E49D /* SMPLForward.mlpackage */ = {isa = PBXFileReference; path = SMPLForward.mlpackage; sourceTree = "<group>"; };
-		0C0160A6034777D79B23B131 /* GVHMRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVHMRApp.swift; sourceTree = "<group>"; };
-		1E1AEB58F9865F2DCD0E08D9 /* HPEApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HPEApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BDA842E6BA774271D51E49D /* SMPLForward.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = SMPLForward.mlpackage; sourceTree = "<group>"; };
+		1E1AEB58F9865F2DCD0E08D9 /* HPEApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HPEApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20FD151808E570ED91CC14DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		21DE0E36C621B9420F9902BD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		356E8026CA32E38A10D22BF2 /* YOLOPoseProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YOLOPoseProcessor.swift; sourceTree = "<group>"; };
@@ -96,14 +95,15 @@
 		46F83562EF79A6413A5F7B67 /* Mesh3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh3DView.swift; sourceTree = "<group>"; };
 		4FD0CD73F60C11C5ED3FD950 /* ActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActivityKit.framework; path = System/Library/Frameworks/ActivityKit.framework; sourceTree = SDKROOT; };
 		55D1BC6A05D552BD92434840 /* PerformanceMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceMetrics.swift; sourceTree = "<group>"; };
-		56343637E03E07CBAE90CFDA /* GVHMRStudent.mlpackage */ = {isa = PBXFileReference; path = GVHMRStudent.mlpackage; sourceTree = "<group>"; };
+		56343637E03E07CBAE90CFDA /* GVHMRStudent.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = GVHMRStudent.mlpackage; sourceTree = "<group>"; };
 		593BB74FA08A3964DE4CF351 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
-		5A9A320BB917A04DE84A4DC2 /* GVHMRMedium.mlpackage */ = {isa = PBXFileReference; path = GVHMRMedium.mlpackage; sourceTree = "<group>"; };
+		5A9A320BB917A04DE84A4DC2 /* GVHMRMedium.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = GVHMRMedium.mlpackage; sourceTree = "<group>"; };
 		5BBAF921C023E683DCB1ABCA /* VideoExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoExporter.swift; sourceTree = "<group>"; };
 		5C058FEB98E1D6DEFD03737C /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		5EF8850DB16D5738351C1C13 /* ViTPoseSmall_traced.pt */ = {isa = PBXFileReference; path = ViTPoseSmall_traced.pt; sourceTree = "<group>"; };
+		5EF8850DB16D5738351C1C13 /* ViTPoseSmall_traced.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = ViTPoseSmall_traced.pt; sourceTree = "<group>"; };
 		632A1A1A2A1083A6B1C4A3F3 /* VideoProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessor.swift; sourceTree = "<group>"; };
-		6570C15D4C6949F8D019EDB0 /* HPEAppLiveActivityExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = HPEAppLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		642E53DE37F6FB7E533ED8AB /* HPEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPEApp.swift; sourceTree = "<group>"; };
+		6570C15D4C6949F8D019EDB0 /* HPEAppLiveActivityExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = HPEAppLiveActivityExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C2D4C7108ED1B16B27A792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67C7E0F1D3C05DB62A6CC11E /* GVHMRInference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVHMRInference.swift; sourceTree = "<group>"; };
 		6BAFD56AAD2E28965E3C213D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,15 +113,15 @@
 		7557BCEEE63971BF6412A4AB /* SkeletonOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonOverlayView.swift; sourceTree = "<group>"; };
 		75D35D64214D130998CE9988 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		81DFB23FA1D8681C2C99F421 /* gvhmr_stats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gvhmr_stats.json; sourceTree = "<group>"; };
-		88223FF6EE7D2DB946AA5A0B /* Captioner.mlpackage */ = {isa = PBXFileReference; path = Captioner.mlpackage; sourceTree = "<group>"; };
+		88223FF6EE7D2DB946AA5A0B /* Captioner.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = Captioner.mlpackage; sourceTree = "<group>"; };
 		88A43FDF492F764B142B3CE7 /* CoreMLCaptioner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLCaptioner.swift; sourceTree = "<group>"; };
-		9A25495ABE1ED99A1C4965D5 /* MobileNetProxy.mlpackage */ = {isa = PBXFileReference; path = MobileNetProxy.mlpackage; sourceTree = "<group>"; };
+		9A25495ABE1ED99A1C4965D5 /* MobileNetProxy.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = MobileNetProxy.mlpackage; sourceTree = "<group>"; };
 		9B0F50B8747FB88850982B5F /* CaptionFusionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionFusionEngine.swift; sourceTree = "<group>"; };
-		AEA27DF3C566E4B9B2ABD7FF /* yolo26n-pose.mlpackage */ = {isa = PBXFileReference; path = "yolo26n-pose.mlpackage"; sourceTree = "<group>"; };
+		AEA27DF3C566E4B9B2ABD7FF /* yolo26n-pose.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = "yolo26n-pose.mlpackage"; sourceTree = "<group>"; };
 		B38E317DA0C6F40A22A2C47C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		B8D051AF8A0602D7185F8F2E /* ViTPoseSmall.mlpackage */ = {isa = PBXFileReference; path = ViTPoseSmall.mlpackage; sourceTree = "<group>"; };
+		B8D051AF8A0602D7185F8F2E /* ViTPoseSmall.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = ViTPoseSmall.mlpackage; sourceTree = "<group>"; };
 		BC7D775D7E60AF2155A79F3D /* PoseDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseDetector.swift; sourceTree = "<group>"; };
-		BF7C3E9D52D55C0DCE2B3F06 /* GVHMROriginal.mlpackage */ = {isa = PBXFileReference; path = GVHMROriginal.mlpackage; sourceTree = "<group>"; };
+		BF7C3E9D52D55C0DCE2B3F06 /* GVHMROriginal.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = GVHMROriginal.mlpackage; sourceTree = "<group>"; };
 		C095E40CC1315ED2688E9D99 /* GVHMRPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVHMRPipeline.swift; sourceTree = "<group>"; };
 		D2869D309944079E8D41FA15 /* VideoProcessingLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessingLiveActivity.swift; sourceTree = "<group>"; };
 		D3EADCF0AC5E8C0A0A8E0625 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -217,9 +217,9 @@
 				88A43FDF492F764B142B3CE7 /* CoreMLCaptioner.swift */,
 				D3F7A5119BE50A1686F1FC58 /* FrameBuffer.swift */,
 				81DFB23FA1D8681C2C99F421 /* gvhmr_stats.json */,
-				0C0160A6034777D79B23B131 /* GVHMRApp.swift */,
 				67C7E0F1D3C05DB62A6CC11E /* GVHMRInference.swift */,
 				C095E40CC1315ED2688E9D99 /* GVHMRPipeline.swift */,
+				642E53DE37F6FB7E533ED8AB /* HPEApp.swift */,
 				20FD151808E570ED91CC14DF /* Info.plist */,
 				439F02D0B7398A9B2993B829 /* MathUtils.swift */,
 				46F83562EF79A6413A5F7B67 /* Mesh3DView.swift */,
@@ -309,11 +309,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					5D148A8F841652A5FDBEB9E5 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					DA64312759BDF1D30B8E20BC = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -328,7 +326,6 @@
 			);
 			mainGroup = 01E2D967AF61150D04ACECFC;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -373,12 +370,12 @@
 				E7FF3EFF4145A2361C9A17BA /* ContentView.swift in Sources */,
 				FB4E44984B6AE70D5038860A /* CoreMLCaptioner.swift in Sources */,
 				7DDF81B2848BFBB76773DD08 /* FrameBuffer.swift in Sources */,
-				65669A229B7A4BAE35ECFBA1 /* GVHMRApp.swift in Sources */,
 				C56498B019DBAFD22788F3B3 /* GVHMRInference.swift in Sources */,
 				B620E4991D2B4C683BA71B4A /* GVHMRMedium.mlpackage in Sources */,
 				2CB57C8983543D62EEAB86BE /* GVHMROriginal.mlpackage in Sources */,
 				0DF1603B6F2863245184AA21 /* GVHMRPipeline.swift in Sources */,
 				834E7038ED80F8C8FE8ABA7E /* GVHMRStudent.mlpackage in Sources */,
+				EACD4EF7DFDFDF0105FE6350 /* HPEApp.swift in Sources */,
 				6B7BA89B27A76EE2BE14E4E4 /* MathUtils.swift in Sources */,
 				C7DD99BE3ACD17BB7B9A74AF /* Mesh3DView.swift in Sources */,
 				82CB09DEBB7C1E049F43ACDA /* MobileNetProxy.mlpackage in Sources */,
@@ -423,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FTL8NPQM9P;
 				INFOPLIST_FILE = HPEApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -444,7 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FTL8NPQM9P;
 				INFOPLIST_FILE = HPEApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -463,7 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FTL8NPQM9P;
 				INFOPLIST_FILE = HPEAppLiveActivityExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,7 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FTL8NPQM9P;
 				INFOPLIST_FILE = HPEAppLiveActivityExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -105,7 +105,7 @@ experiments/2026-02-22-iOSAPP/
 ├── project.yml               # XcodeGen project definition
 ├── README.md                 # This file
 └── HPEApp/
-    ├── GVHMRApp.swift        # App entry point
+     ├── HPEApp.swift          # App entry point
     ├── Types.swift           # Shared types, constants, enums
     ├── MathUtils.swift       # Rotation math (6D→matrix, Rodrigues, etc.)
     ├── FrameBuffer.swift     # 16-frame circular buffer

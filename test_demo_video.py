@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: MIT
-# Copyright (c) 2025 GVHMR iOS App Contributors
+# Copyright (c) 2026 Calvin Chan
 """"
 Test the GVHMR Student model on the tennis demo video.
 
