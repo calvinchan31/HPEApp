@@ -1,0 +1,82 @@
+# Xcode
+.DS_Store
+*.pbxuser
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+build/
+DerivedData/
+*.dSYM
+*.ipa
+*.xcarchive
+.swiftpm/
+
+# Build artifacts
+bin/
+obj/
+*.app
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.Python
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.IntelliJ
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Large binary files (CoreML models)
+*.mlpackage/
+*.bin
+*.pt
+*.pth
+*.ckpt
+Models/
+
+# Media files
+*.mp4
+*.mov
+*.m4v
+*.avi
+
+# Environment & Config
+.env
+.env.local
+*.log
+.cache/
+
+# Local artifacts
+checkpoints/
+temp/
+*.tmp
+.turbo/

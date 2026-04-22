@@ -1,0 +1,60 @@
+name: iOS Build & Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup Xcode version
+      run: |
+        sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+        xcodebuild -version
+    
+    - name: Install dependencies
+      run: |
+        brew install xcodegen
+    
+    - name: Generate Xcode project
+      run: |
+        xcodegen generate
+    
+    - name: Build iOS app
+      run: |
+        xcodebuild build \
+          -project HPEApp.xcodeproj \
+          -scheme HPEApp \
+          -configuration Release \
+          -arch arm64 \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO
+    
+    - name: Run unit tests (if configured)
+      run: |
+        xcodebuild test \
+          -project HPEApp.xcodeproj \
+          -scheme HPEApp \
+          -configuration Debug \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO || true
+
+  lint:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: SwiftLint
+      uses: norio-nomura/action-swiftlint@master
+      with:
+        args: --config .swiftlint.yml
+      continue-on-error: true

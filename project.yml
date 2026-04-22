@@ -1,0 +1,62 @@
+name: HPEApp
+options:
+  bundleIdPrefix: com.hpeapp
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "15.0"
+
+targets:
+  HPEApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: HPEApp
+        excludes:
+          - Models/**
+      - path: HPEApp/Models
+        buildPhase: sources
+        compilerFlags: []
+    resources:
+      - path: HPEApp/Assets.xcassets
+      - path: HPEApp/gvhmr_stats.json
+      - path: HPEApp/smpl_faces.bin
+      - path: HPEApp/smpl_template.bin
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.hpeapp.ios
+        INFOPLIST_FILE: HPEApp/Info.plist
+        SWIFT_VERSION: "5.9"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+      configs:
+        Debug:
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+    dependencies:
+      - sdk: SceneKit.framework
+      - sdk: PhotosUI.framework
+      - target: HPEAppLiveActivityExtension
+        embed: true
+
+  HPEAppLiveActivityExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: HPEAppLiveActivityExtension
+      - path: HPEApp/VideoProcessingActivityAttributes.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.hpeapp.ios.liveactivity
+        INFOPLIST_FILE: HPEAppLiveActivityExtension/Info.plist
+        SWIFT_VERSION: "5.9"
+        IPHONEOS_DEPLOYMENT_TARGET: "16.1"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        SKIP_INSTALL: YES
+    dependencies:
+      - sdk: WidgetKit.framework
+      - sdk: ActivityKit.framework
+      - sdk: SwiftUI.framework
