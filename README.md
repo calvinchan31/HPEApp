@@ -173,6 +173,7 @@ experiments/2026-02-22-iOSAPP/
 ---
 
 ## License
+
 This iOS application code is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 ### Third-Party Models & Attribution
