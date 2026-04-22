@@ -8,7 +8,7 @@ import CoreML
 import UIKit
 
 /// Manages CoreML model loading and inference for both
-/// the MobileNet feature extractor and the GVHMR student transformer.
+/// the MobileNet feature extractor and GVHMR model variants (Small/Medium/Original).
 class GVHMRInference {
 
     private var mobileNetModel: MLModel?

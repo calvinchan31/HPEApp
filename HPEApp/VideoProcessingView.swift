@@ -201,14 +201,6 @@ struct VideoProcessingView: View {
             .onTapGesture {
                 pendingSavedVideoDeleteID = nil
             }
-            .simultaneousGesture(
-                DragGesture(minimumDistance: 10)
-                    .onChanged { _ in
-                        if pendingSavedVideoDeleteID != nil {
-                            pendingSavedVideoDeleteID = nil
-                        }
-                    }
-            )
             .padding(.vertical, 24)
         }
     }
@@ -447,14 +439,11 @@ struct VideoProcessingView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 10)
             } else {
-                ScrollView {
-                    VStack(spacing: 8) {
-                        ForEach(savedVideos) { item in
-                            savedVideoRow(item)
-                        }
+                LazyVStack(spacing: 8) {
+                    ForEach(savedVideos) { item in
+                        savedVideoRow(item)
                     }
                 }
-                .frame(maxHeight: 220)
             }
         }
     }
@@ -1162,8 +1151,7 @@ struct VideoProcessingView: View {
 
     private var comparisonView: some View {
         let m = processor.metrics
-        return ScrollView {
-            VStack(spacing: 12) {
+        return VStack(spacing: 12) {
             if m.isComparing {
                 VStack(spacing: 8) {
                     Text(m.comparisonPhase)
@@ -1290,7 +1278,7 @@ struct VideoProcessingView: View {
                 }
             }
         }
-        }
+        .padding(.bottom, 12)
     }
 
     private var comparePreviewStack: some View {

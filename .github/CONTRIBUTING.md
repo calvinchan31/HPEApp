@@ -7,7 +7,7 @@ Thank you for your interest in contributing to HPE App! This document provides g
 Please review:
 - [LICENSE](../LICENSE) — MIT License for app code
 - [ACKNOWLEDGMENTS.md](../ACKNOWLEDGMENTS.md) — Third-party model and library licenses
-- [PUBLISHING_CHECKLIST.md](../PUBLISHING_CHECKLIST.md) — Commercial use restrictions
+- Commercial use restrictions summarized in [ACKNOWLEDGMENTS.md](../ACKNOWLEDGMENTS.md)
 
 ## Development Setup
 
@@ -121,7 +121,7 @@ Use GitHub Issues with:
 ##  Documentation
 
 - User-facing docs: See [README.md](../README.md)
-- Technical docs: See `docs/` folder
+- Licensing and third-party notices: See [ACKNOWLEDGMENTS.md](../ACKNOWLEDGMENTS.md)
 - Code comments: Use SwiftDoc format
 
 ##  Questions

@@ -337,7 +337,7 @@ class VideoExporter {
         }
     }
 
-    /// Export a labeled compare video with Original input + Small/Medium/Teacher outputs.
+    /// Export a labeled compare video with Original input + Small/Medium/Original outputs.
     static func exportComparisonLabeledVideo(
         sourceURL: URL,
         comparisonFrameResults: [GVHMRModelChoice: [VideoProcessor.FrameResult]],
@@ -492,7 +492,7 @@ class VideoExporter {
             drawLabeledIncamPanel(
                 cg: cg,
                 rect: teacherRect,
-                title: "Teacher Output",
+                title: "Original Output",
                 model: .original,
                 frameIndex: frameIndex,
                 comparisonFrameResults: comparisonFrameResults,
@@ -528,7 +528,7 @@ class VideoExporter {
         }
     }
 
-    /// Export one compare SMPL video with original video + Small/Medium/Teacher outputs in a 2x2 layout.
+    /// Export one compare SMPL video with original video + Small/Medium/Original outputs in a 2x2 layout.
     static func exportComparisonCompositeVideo(
         sourceURL: URL,
         comparisonFrameResults: [GVHMRModelChoice: [VideoProcessor.FrameResult]],

@@ -4,9 +4,11 @@
 #
 # CoreML Export Script for HPE App
 #
-# Exports two CoreML models:
+# Exports CoreML models:
 #   1. MobileNetProxy.mlpackage — distilled feature extractor (trained to match HMR2 token_out)
 #   2. GVHMRStudent.mlpackage   — distilled GVHMR transformer (256-dim, 6 layers, 4 heads)
+#   3. GVHMRMedium.mlpackage    — medium GVHMR transformer (384-dim, 8 layers, 6 heads)
+#   4. GVHMROriginal.mlpackage  — original GVHMR transformer (512-dim, 12 layers, 8 heads)
 #
 # Also exports gvhmr_stats.json with the normalization statistics needed on-device.
 #
@@ -15,7 +17,7 @@
 #     cd /home/calv0026/GVHMR8
 #     python experiments/2026-02-22-iOSAPP/train_feature_distill.py
 #
-#     # Then export both models to CoreML:
+#     # Then export models to CoreML:
 #     python experiments/2026-02-22-iOSAPP/export_coreml.py
 #
 # Requirements:

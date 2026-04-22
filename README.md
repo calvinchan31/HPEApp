@@ -1,31 +1,34 @@
 # HPE App
 
-Real-time human motion recovery on iPhone using a distilled GVHMR student model.
+Real-time human motion recovery on iPhone using selectable GVHMR model variants.
 
 ## Architecture
 
 ```
-Camera (720p) ──► Apple Vision (2D Pose + BBox)
+Camera (720p) ──► Preprocessing
+                    (Vision+ViTPose OR YOLO+ViTPose OR YOLO-Pose)
                         │
 Device Gyroscope ──► MotionManager (6D angular velocity)
                         │
-Camera Intrinsics ──► CLIFF Camera (3D)
+Camera Intrinsics + BBox ──► CLIFF Camera features
                         │
 Cropped Person ──► MobileNetV3-Small Proxy (1024D features)
                         │
     All inputs ──► FrameBuffer (16-frame sliding window)
                         │
-                   GVHMRStudent CoreML (pred_x: 151D, pred_cam: 3D)
+       Selected GVHMR CoreML (Small / Medium / Original)
                         │
-                   SMPLDecoder (forward kinematics → 22 joints)
+         SMPLDecoder (forward kinematics → 22 joints)
                         │
-                  CaptionFusionEngine (semantic caption)
+   CaptionFusionEngine (+ optional CoreMLCaptioner)
                         │
-                   SkeletonOverlayView (Canvas rendering)
+   SkeletonOverlayView / Mesh3DView (live + video views)
 ```
 
-**Model**: Small student (~5.79M params) distilled from the full GVHMR teacher (~40.85M params).
-- 256-dim latent, 6 transformer layers, 4 attention heads
+**Model Variants**:
+- Small: 256-dim latent, 6 transformer layers, 4 attention heads
+- Medium: 384-dim latent, 8 transformer layers, 6 attention heads
+- Original: 512-dim latent, 12 transformer layers, 8 attention heads
 - Temporal window: 16 frames, inference every 4 frames
 
 ## Prerequisites
@@ -39,22 +42,25 @@ Cropped Person ──► MobileNetV3-Small Proxy (1024D features)
 
 ### 1. Export CoreML Models
 
-From the GVHMR8 root (with the GVHMR conda env activated):
+From this folder (with the GVHMR conda env activated):
 
 ```bash
-cd experiments/2026-02-22-iOSAPP
 python export_coreml.py
 ```
+
+Note: `export_coreml.py` expects GVHMR checkpoints/imports to be available via its configured
+`ROOT` and checkpoint paths. If your local layout differs, adjust paths in `export_coreml.py`.
 
 This produces:
 - `HPEApp/Models/MobileNetProxy.mlpackage`
 - `HPEApp/Models/GVHMRStudent.mlpackage`
+- `HPEApp/Models/GVHMRMedium.mlpackage`
+- `HPEApp/Models/GVHMROriginal.mlpackage`
 - `HPEApp/gvhmr_stats.json` (normalization statistics)
 
 ### 2. Generate Xcode Project
 
 ```bash
-cd experiments/2026-02-22-iOSAPP
 xcodegen generate
 ```
 
@@ -99,39 +105,22 @@ open HPEApp.xcodeproj
 
 ## Project Structure
 
-```
-experiments/2026-02-22-iOSAPP/
-├── export_coreml.py          # CoreML model export script
-├── project.yml               # XcodeGen project definition
-├── README.md                 # This file
-└── HPEApp/
-     ├── HPEApp.swift          # App entry point
-    ├── Types.swift           # Shared types, constants, enums
-    ├── MathUtils.swift       # Rotation math (6D→matrix, Rodrigues, etc.)
-    ├── FrameBuffer.swift     # 16-frame circular buffer
-    ├── SMPLDecoder.swift     # Denormalize + forward kinematics (22 joints)
-    ├── CameraManager.swift   # AVFoundation camera capture
-    ├── MotionManager.swift   # CoreMotion gyroscope → angular velocity
-    ├── PoseDetector.swift    # Apple Vision 2D pose + bounding box
-    ├── GVHMRInference.swift  # CoreML model loading & inference
-    ├── GVHMRPipeline.swift   # Main pipeline orchestrator
-     ├── CaptionFusionEngine.swift # Pose-to-language semantic caption bridge
-    ├── CameraPreviewView.swift   # UIKit camera preview wrapper
-    ├── SkeletonOverlayView.swift # Canvas-based skeleton rendering
-    ├── ContentView.swift     # Main SwiftUI UI
-    ├── Info.plist            # Privacy permissions
-    ├── gvhmr_stats.json      # Normalization mean/std (151 dims)
-    ├── Models/               # CoreML .mlpackage files (after export)
-    └── Assets.xcassets/      # App assets
-```
+- `export_coreml.py` — CoreML model export script
+- `project.yml` — XcodeGen project definition
+- `HPEApp/HPEApp.swift` — app entry point
+- `HPEApp/ContentView.swift` — main SwiftUI shell (Live/Video modes)
+- `HPEApp/GVHMRPipeline.swift` — live camera inference pipeline
+- `HPEApp/VideoProcessingView.swift` — offline video processing and model comparison UI
+- `HPEApp/Models/` — CoreML models bundled with the app
+- `HPEApp/gvhmr_stats.json` — normalization statistics used by decoder
 
 ## Usage
 
 1. Launch the app on your iPhone
 2. Point the camera at a person
 3. Tap **Start** to begin motion capture
-4. Toggle **2D Input** to see detected keypoints (cyan)
-5. Toggle **3D Output** to see the SMPL skeleton overlay (color-coded)
+4. Toggle **2D** to see detected keypoints (cyan)
+5. Toggle **Mesh** to see 3D mesh view (or disable it for skeleton view)
 6. Toggle **Caption** to show semantic action captions from motion output
 7. In **Multi** mode, tap a person in the camera view to select them for Caption description
 8. The Caption panel shows both person count and selected track id
@@ -140,13 +129,14 @@ experiments/2026-02-22-iOSAPP/
 ### Video Mode Controls
 
 - **Caption toggle** in playback controls enables/disables semantic captions in video mode.
-- In multi-person video mode, per-frame person chips (`P<track_id>`) let you choose which
-     person's Caption timeline is shown.
+- In multi-person video mode, per-frame person chips (`P<track_id>`) let you choose which person's Caption timeline is shown.
+- **Compare All Models** runs Small/Medium/Original and can show per-model preview panels.
 
 ### Live Stats Modes
 
-- **Stats A**: full diagnostics (all metrics)
-- **Stats C**: compact diagnostics (GVHMR, Pipeline, Memory focus)
+- **Stats Off**: hide live diagnostics
+- **Stats All**: full diagnostics (all metrics)
+- **Stats Core**: compact diagnostics (GVHMR, Pipeline, Memory focus)
 
 ## Technical Details
 
@@ -209,6 +199,6 @@ Contributions are welcome! By contributing, you agree to license your contributi
 ## Support & Issues
 
 For issues, feature requests, or questions:
-1. Check [app_documentation_1.md](app_documentation_1.md) for detailed technical documentation
-2. Open an issue on GitHub
-3. Review [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) for licensing questions
+1. Open an issue on GitHub
+2. Review [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md) for licensing questions
+3. See [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) for contribution and setup guidance

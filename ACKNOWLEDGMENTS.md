@@ -220,5 +220,5 @@ For licensing questions or concerns, please:
 
 ---
 
-**Last Updated:** 2025  
+**Last Updated:** 2026  
 **Version:** 1.0
