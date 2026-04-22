@@ -55,13 +55,6 @@ venv.bak/
 .Spotlight-V100
 .Trashes
 
-# Large binary files (CoreML models)
-*.mlpackage/
-*.bin
-*.pt
-*.pth
-*.ckpt
-Models/
 
 # Media files
 *.mp4

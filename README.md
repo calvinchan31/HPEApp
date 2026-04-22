@@ -104,7 +104,7 @@ experiments/2026-02-22-iOSAPP/
 ├── export_coreml.py          # CoreML model export script
 ├── project.yml               # XcodeGen project definition
 ├── README.md                 # This file
-└── GVHMRApp/
+└── HPEApp/
     ├── GVHMRApp.swift        # App entry point
     ├── Types.swift           # Shared types, constants, enums
     ├── MathUtils.swift       # Rotation math (6D→matrix, Rodrigues, etc.)

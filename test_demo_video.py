@@ -39,7 +39,7 @@ PREPROC_DIR = os.path.join(DEMO_DIR, "preprocess")
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 STUDENT_CKPT = os.path.join(ROOT, "outputs/mocap_mixed_v1/mixed_student/checkpoints/e499-s377000.ckpt")
 DISTILLED_FEAT_CKPT = os.path.join(APP_DIR, "checkpoints", "mobilenet_distilled.pt")
-STATS_PATH = os.path.join(APP_DIR, "GVHMRApp", "gvhmr_stats.json")
+STATS_PATH = os.path.join(APP_DIR, "HPEApp", "gvhmr_stats.json")
 VIDEO_PATH = os.path.join(DEMO_DIR, "0_input_video.mp4")
 
 # 21 SMPL body joints (excluding root)

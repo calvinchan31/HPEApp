@@ -31,7 +31,7 @@ from pytorch3d.transforms import rotation_6d_to_matrix, matrix_to_axis_angle, ax
 DEMO_DIR = os.path.join(ROOT, "outputs/demo/tennis")
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 STUDENT_CKPT = os.path.join(ROOT, "outputs/mocap_mixed_v1/mixed_student/checkpoints/e499-s377000.ckpt")
-STATS_PATH = os.path.join(APP_DIR, "GVHMRApp", "gvhmr_stats.json")
+STATS_PATH = os.path.join(APP_DIR, "HPEApp", "gvhmr_stats.json")
 VIDEO_PATH = os.path.join(DEMO_DIR, "0_input_video.mp4")
 SMPL_PATH = os.path.join(ROOT, "inputs/checkpoints/body_models/smpl/SMPL_NEUTRAL.pkl")
 
